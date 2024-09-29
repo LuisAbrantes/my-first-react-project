@@ -7,17 +7,17 @@ function App() {
 
 
   return (<div className="App"> 
-    <User />
+    <User name="Luis" age={17} email="luis.hsa@gmail.com"/>
   </div>
   );
 }
 
-const User = () => {
+const User = (props) => {
   return (
     <div>
-      <h1>Luis</h1>
-      <h2>17</h2>
-      <h2>luis.hsa@gmail.com</h2>
+      <h1>{props.name}</h1>
+      <h2>{props.age}</h2>
+      <h2>{props.email}</h2>
     </div>
   );
 };
