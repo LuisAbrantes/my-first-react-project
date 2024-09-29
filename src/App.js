@@ -1,25 +1,24 @@
 import './App.css';
 
 function App() {
-  const name = <h1>Luis</h1>;
-  const age = <h2>17</h2>;
-  const email = <h2>luis.hsa@gmail.com</h2>;
-
-
-  return (<div className="App"> 
-    <User name="Luis" age={17} email="luis.hsa@gmail.com"/>
+  return (
+  <div className="App"> 
+    <Job salary={1000} position="Frontend Developer" company="Amazon"/>
+    <Job salary={1080} position="Junior SDE" company="Google"/>
+    <Job salary={1900} position="Senior SDE" company="Apple"/>
   </div>
   );
 }
 
-const User = (props) => {
+const Job = (props) => {
   return (
-    <div>
-      <h1>{props.name}</h1>
-      <h2>{props.age}</h2>
-      <h2>{props.email}</h2>
+    <div> 
+      <h1>{props.company}</h1>
+      <h2>{props.position}</h2>
+      <h3>{props.salary}</h3>
     </div>
-  );
+  )
 };
+
 
 export default App;
