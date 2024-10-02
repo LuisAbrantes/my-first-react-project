@@ -2,15 +2,18 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [showText, setShowText] = useState(false);
+  const [textColor, setTextColor] = useState("gray");
 
   return (
     <div className="App">
-      <button onClick={() => 
-        // {alert("Jesus eh Hey!");}
-        setShowText(!showText)
-      }> Show/Hide </button>
-      {showText === true && <h1>JESUS</h1>}
+      <button 
+        onClick={() => {
+          setTextColor(textColor === "gray" ? "lightblue" : "gray");
+        }}
+      > 
+        Show/Hide 
+      </button>
+      <h1 style={{color: textColor}}>JESUS</h1>
     </div>
   );
 }
