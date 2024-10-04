@@ -2,16 +2,16 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [todoList, setTooLit] = useState([]);
+  const [todoList, setTodoList] = useState([]);
   const [newTask, SetNewTask] = useState([]);
 
-  const handleChange = () => {
+  const handleChange = (event) => {
     SetNewTask(event.target.value);
   };
 
   const addTask = () => {
-    setTooLit([...todoList, newTask]);
-    setTodoList(newTodoList);
+    const newTodoList = [...todoList, newTask]
+    setTodoList(newTodoList)
   };
   return (
     <div className="App">
