@@ -2,27 +2,28 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [todoList, setTooLit] = useState([]);
+  const [newTask, SetNewTask] = useState([]);
 
-  const increase = () => {
-    setCount(count + 1);
-  }
+  const handleChange = () => {
+    SetNewTask(event.target.value);
+  };
 
-  const decrease = () => {
-    setCount(count - 1);
-  }
-
-  const setToZero = () => {
-    setCount(0);
-  }
-
+  const addTask = () => {
+    setTooLit([...todoList, newTask]);
+    setTodoList(newTodoList);
+  };
   return (
     <div className="App">
-      <button onClick={increase}> Increase</button>
-      <button onClick={decrease}> Decrease </button>
-      <button onClick={setToZero}> Set to Zero </button>
-
-      <h1> {count} </h1>
+      <div className='addTask'>
+        <input onChange={handleChange} />
+        <button onClick={addTask}>Add Task</button>
+      </div>
+      <div className='list'>
+        {todoList.map((task) => {
+          return <h1>{task}</h1>;
+        })}
+      </div>
     </div>
   );
 }
