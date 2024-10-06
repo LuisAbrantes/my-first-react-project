@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 function App() {
   const [todoList, setTodoList] = useState([]);
-  const [newTask, SetNewTask] = useState([]);
+  const [newTask, SetNewTask] = useState("");
 
   const handleChange = (event) => {
     SetNewTask(event.target.value);
@@ -13,6 +13,14 @@ function App() {
     const newTodoList = [...todoList, newTask]
     setTodoList(newTodoList)
   };
+
+  const deleteTask = (taskName) => {
+    const newTodoList = todoList.filter((task) => {
+      return task !== taskName;
+    });
+    setTodoList(newTodoList);
+  };
+
   return (
     <div className="App">
       <div className='addTask'>
@@ -21,7 +29,12 @@ function App() {
       </div>
       <div className='list'>
         {todoList.map((task) => {
-          return <h1>{task}</h1>;
+          return (
+            <div>
+              <h1>{task}</h1>
+              <button onClick={() => deleteTask(task)}>Delete</button>
+            </div>
+          );
         })}
       </div>
     </div>
